@@ -218,8 +218,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!hasError) {
-      successModal.classList.add('open');
-      contactForm.reset();
+      // 送信ボタンをローディング状態にする
+      const submitBtn = document.getElementById('submitBtn');
+      const submitText = submitBtn.querySelector('span');
+      const originalText = submitText ? submitText.textContent : '送信する';
+      
+      submitBtn.disabled = true;
+      if (submitText) submitText.textContent = '送信中...';
+
+      const formData = new FormData(contactForm);
+      const actionUrl = contactForm.getAttribute('action');
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          successModal.classList.add('open');
+          contactForm.reset();
+        } else {
+          alert('送信に失敗しました。時間をおいて再度お試しいただくか、お電話にて直接ご連絡ください。');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('通信エラーが発生しました。接続状況を確認し、再度お試しください。');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        if (submitText) submitText.textContent = originalText;
+      });
     } else {
       const firstError = contactForm.querySelector('.has-error input, .has-error textarea');
       if (firstError) {
