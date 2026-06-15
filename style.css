@@ -218,7 +218,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo a {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
 }
 
 .logo-main {
