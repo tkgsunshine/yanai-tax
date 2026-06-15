@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   height: 90vh;
   min-height: 600px;
-  background: url('images/hero_background.png') no-repeat center center / cover;
+  background: url('images/hero_background.webp') no-repeat center center / cover;
   display: flex;
   align-items: center;
   padding-top: var(--header-height);
@@ -1406,6 +1406,7 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     min-height: 100vh;
     padding: 120px 0 80px;
+    background-image: url('images/hero_background_mobile.webp');
   }
   
   .hero-title {

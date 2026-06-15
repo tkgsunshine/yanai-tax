@@ -10,6 +10,10 @@
   <meta name="keywords" content="税理士,公認会計士,大田区,南六郷,確定申告,相続税,クラウド会計,政治資金監査,栁井友一">
   <link rel="canonical" href="https://yanai-tax.vercel.app/">
 
+  <!-- Preload Critical LCP Resource -->
+  <link rel="preload" as="image" href="images/hero_background.webp" fetchpriority="high" type="image/webp">
+  <link rel="preload" as="style" href="style.min.css">
+
   <!-- OG Tags -->
   <meta property="og:title" content="栁井友一公認会計士・税理士事務所 | 東京都大田区南六郷">
   <meta property="og:description" content="中小企業の経営支援から個人の確定申告・相続まで。クラウド会計を活用した効率的な税務サポートを提供します。">
@@ -49,16 +53,17 @@
   }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts (Non-render-blocking via preload and media='print') -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'">
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons CDN (Deferred to prevent render blocking) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.min.css">
 </head>
 <body>
   <!-- Scroll Progress Bar -->
