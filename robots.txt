@@ -5,5 +5,4 @@ Allow: /
 User-agent: *
 Disallow: /_vercel/
 
-# 独自ドメインが決まったらここを修正してください
-Sitemap: https://yanai-tax.vercel.app/sitemap.xml
+Sitemap: https://yanai-tax.jp/sitemap.xml
